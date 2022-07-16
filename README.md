@@ -85,6 +85,22 @@ $ make bootstrap
 ...
 ```
 
+```sh
+storage "mccockroachdb" {
+  connection_url = "postgresql://demo:demo15564@127.0.0.1:26257/defaultdb?sslmode=require"
+  hostname = "vault_0"
+}
+
+listener "tcp" {
+  address     = "127.0.0.1:8205"
+  tls_disable = 1
+}
+
+api_addr = "http://localhost:8205"
+cluster_addr = "https://localhost:8201"
+ui = true
+```
+
 To compile a development version of Vault, run `make` or `make dev`. This will
 put the Vault binary in the `bin` and `$GOPATH/bin` folders:
 
